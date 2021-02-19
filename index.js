@@ -722,23 +722,28 @@ const readFoldersGas = async (dirPath, watcher) => {
 
                         var resArray = htmlString.split("|");
                         
-                        resArray[14] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].co_1 + "&nbsp;&nbsp;";
-                        resArray[15] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].co_2 + "&nbsp;&nbsp;";
+                        resArray[14] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].co_1 + "&nbsp;&nbsp;";
+                        resArray[15] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].co_2 + "&nbsp;&nbsp;";
 
-                        resArray[18] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].co2_1 + "&nbsp;&nbsp;";
-                        resArray[19] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].co2_2 + "&nbsp;&nbsp;";
+                        resArray[18] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].co2_1 + "&nbsp;&nbsp;";
+                        resArray[19] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].co2_2 + "&nbsp;&nbsp;";
 
-                        resArray[22] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].hc_1 + "&nbsp;&nbsp;";
-                        resArray[23] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].hc_2 + "&nbsp;&nbsp;";
+                        let nbsp = await getNbsp(gas_bun_03[randomNumber].hc_1, 4, 3);
 
-                        resArray[26] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].o2_1 + "&nbsp;&nbsp;";
-                        resArray[27] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].o2_2 + "&nbsp;&nbsp;";
+                        resArray[22] = nbsp + gas_bun_03[randomNumber].hc_1 + "&nbsp;&nbsp;";
+                        
+                        nbsp = await getNbsp(gas_bun_03[randomNumber].hc_2, 4, 3);
+                        
+                        resArray[23] = nbsp + gas_bun_03[randomNumber].hc_2 + "&nbsp;&nbsp;";
 
-                        resArray[30] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].lambda_1 + "&nbsp;&nbsp;";
-                        resArray[31] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+                        resArray[26] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].o2_1 + "&nbsp;&nbsp;";
+                        resArray[27] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].o2_2 + "&nbsp;&nbsp;";
 
-                        resArray[34] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].coc_1 + "&nbsp;&nbsp;";
-                        resArray[35] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].coc_2 + "&nbsp;&nbsp;";
+                        resArray[30] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].lambda_1 + "&nbsp;&nbsp;";
+                        resArray[31] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+
+                        resArray[34] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].coc_1 + "&nbsp;&nbsp;";
+                        resArray[35] = "&nbsp;&nbsp;&nbsp;" + gas_bun_03[randomNumber].coc_2 + "&nbsp;&nbsp;";
 
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].afr_2 + "&nbsp;&nbsp;";
@@ -755,23 +760,28 @@ const readFoldersGas = async (dirPath, watcher) => {
 
                         var resArray = htmlString.split("|");
                         
-                        resArray[14] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].co_1 + "&nbsp;&nbsp;";
-                        resArray[15] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].co_2 + "&nbsp;&nbsp;";
+                        resArray[14] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].co_1 + "&nbsp;&nbsp;";
+                        resArray[15] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].co_2 + "&nbsp;&nbsp;";
 
-                        resArray[18] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].co2_1 + "&nbsp;&nbsp;";
-                        resArray[19] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].co2_2 + "&nbsp;&nbsp;";
+                        resArray[18] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].co2_1 + "&nbsp;&nbsp;";
+                        resArray[19] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].co2_2 + "&nbsp;&nbsp;";
 
-                        resArray[22] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].hc_1 + "&nbsp;&nbsp;";
-                        resArray[23] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].hc_2 + "&nbsp;&nbsp;";
+                        let nbsp = await getNbsp(gas_bun_05[randomNumber].hc_1, 4, 3);
 
-                        resArray[26] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].o2_1 + "&nbsp;&nbsp;";
-                        resArray[27] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].o2_2 + "&nbsp;&nbsp;";
+                        resArray[22] = nbsp + gas_bun_05[randomNumber].hc_1 + "&nbsp;&nbsp;";
+                        
+                        nbsp = await getNbsp(gas_bun_05[randomNumber].hc_2, 4, 3);
+                        
+                        resArray[23] = nbsp + gas_bun_05[randomNumber].hc_2 + "&nbsp;&nbsp;";
 
-                        resArray[30] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].lambda_1 + "&nbsp;&nbsp;";
-                        resArray[31] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+                        resArray[26] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].o2_1 + "&nbsp;&nbsp;";
+                        resArray[27] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].o2_2 + "&nbsp;&nbsp;";
 
-                        resArray[34] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].coc_1 + "&nbsp;&nbsp;";
-                        resArray[35] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].coc_2 + "&nbsp;&nbsp;";
+                        resArray[30] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].lambda_1 + "&nbsp;&nbsp;";
+                        resArray[31] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+
+                        resArray[34] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].coc_1 + "&nbsp;&nbsp;";
+                        resArray[35] = "&nbsp;&nbsp;&nbsp;" + gas_bun_05[randomNumber].coc_2 + "&nbsp;&nbsp;";
 
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].afr_2 + "&nbsp;&nbsp;";
@@ -788,23 +798,28 @@ const readFoldersGas = async (dirPath, watcher) => {
 
                         var resArray = htmlString.split("|");
                         
-                        resArray[14] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].co_1 + "&nbsp;&nbsp;";
-                        resArray[15] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].co_2 + "&nbsp;&nbsp;";
+                        resArray[14] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co_1 + "&nbsp;&nbsp;";
+                        resArray[15] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co_2 + "&nbsp;&nbsp;";
 
-                        resArray[18] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_1 + "&nbsp;&nbsp;";
-                        resArray[19] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_2 + "&nbsp;&nbsp;";
+                        resArray[18] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_1 + "&nbsp;&nbsp;";
+                        resArray[19] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_2 + "&nbsp;&nbsp;";
 
-                        resArray[22] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].hc_1 + "&nbsp;&nbsp;";
-                        resArray[23] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].hc_2 + "&nbsp;&nbsp;";
+                        let nbsp = await getNbsp(gas_bun_35[randomNumber].hc_1, 4, 3);
 
-                        resArray[26] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_1 + "&nbsp;&nbsp;";
-                        resArray[27] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_2 + "&nbsp;&nbsp;";
+                        resArray[22] = nbsp + gas_bun_35[randomNumber].hc_1 + "&nbsp;&nbsp;";
+                        
+                        nbsp = await getNbsp(gas_bun_35[randomNumber].hc_2, 4, 3);
+                        
+                        resArray[23] = nbsp + gas_bun_35[randomNumber].hc_2 + "&nbsp;&nbsp;";
 
-                        resArray[30] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].lambda_1 + "&nbsp;&nbsp;";
-                        resArray[31] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+                        resArray[26] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_1 + "&nbsp;&nbsp;";
+                        resArray[27] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_2 + "&nbsp;&nbsp;";
 
-                        resArray[34] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].coc_1 + "&nbsp;&nbsp;";
-                        resArray[35] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].coc_2 + "&nbsp;&nbsp;";
+                        resArray[30] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].lambda_1 + "&nbsp;&nbsp;";
+                        resArray[31] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+
+                        resArray[34] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].coc_1 + "&nbsp;&nbsp;";
+                        resArray[35] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].coc_2 + "&nbsp;&nbsp;";
 
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].afr_2 + "&nbsp;&nbsp;";
@@ -821,23 +836,28 @@ const readFoldersGas = async (dirPath, watcher) => {
 
                         var resArray = htmlString.split("|");
                         
-                        resArray[14] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].co_1 + "&nbsp;&nbsp;";
-                        resArray[15] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].co_2 + "&nbsp;&nbsp;";
+                        resArray[14] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co_1 + "&nbsp;&nbsp;";
+                        resArray[15] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co_2 + "&nbsp;&nbsp;";
 
-                        resArray[18] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_1 + "&nbsp;&nbsp;";
-                        resArray[19] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_2 + "&nbsp;&nbsp;";
+                        resArray[18] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_1 + "&nbsp;&nbsp;";
+                        resArray[19] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_2 + "&nbsp;&nbsp;";
 
-                        resArray[22] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].hc_1 + "&nbsp;&nbsp;";
-                        resArray[23] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].hc_2 + "&nbsp;&nbsp;";
+                        let nbsp = await getNbsp(gas_bun_45[randomNumber].hc_1, 4, 3);
 
-                        resArray[26] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_1 + "&nbsp;&nbsp;";
-                        resArray[27] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_2 + "&nbsp;&nbsp;";
+                        resArray[22] = nbsp + gas_bun_45[randomNumber].hc_1 + "&nbsp;&nbsp;";
+                        
+                        nbsp = await getNbsp(gas_bun_45[randomNumber].hc_2, 4, 3);
+                        
+                        resArray[23] = nbsp + gas_bun_45[randomNumber].hc_2 + "&nbsp;&nbsp;";
 
-                        resArray[30] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].lambda_1 + "&nbsp;&nbsp;";
-                        resArray[31] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+                        resArray[26] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_1 + "&nbsp;&nbsp;";
+                        resArray[27] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_2 + "&nbsp;&nbsp;";
 
-                        resArray[34] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].coc_1 + "&nbsp;&nbsp;";
-                        resArray[35] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].coc_2 + "&nbsp;&nbsp;";
+                        resArray[30] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].lambda_1 + "&nbsp;&nbsp;";
+                        resArray[31] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+
+                        resArray[34] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].coc_1 + "&nbsp;&nbsp;";
+                        resArray[35] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].coc_2 + "&nbsp;&nbsp;";
 
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].afr_2 + "&nbsp;&nbsp;";
@@ -848,7 +868,8 @@ const readFoldersGas = async (dirPath, watcher) => {
                       
                     }
 
-                    htmlString = htmlString.replace("�C|", "&#8451;|")
+                    //htmlString = htmlString.replace("�C|", "&#8451;|")
+                    htmlString = htmlString.replace("�C|", "°C|")
                     let indexOfNr = htmlString.indexOf("N�&nbsp;");
 
                     let part1 = htmlString.substring(0, indexOfNr);
@@ -913,158 +934,100 @@ const readFoldersSmoke = async (dirPath, watcher) => {
             
 
                 if(data !== undefined){
-                    open("http://localhost:3000/editeaza_diesel", {app: 'chrome'});
                     htmlString = data.toString();
                     //console.log(htmlString);
                     
                     let randomNumber; 
 
+                    var resArray = htmlString.split("|");
+
+                    let i = 0;
+                    resArray.forEach(element => {
+                        console.log(element);
+                        console.log(i++);
+                        console.log("++++++++++++++++++++++++++\n");
+                    });
+
+                    //Testam daca este Admis
+                    //Daca nu este admis atunci verificam numarul de randuri
+                    //Daca numarul de randuri este 1
+                    //Daca numarul de randuri este > 1
+                    //Daca numarul de randuri este = 0
+                    let k_m = await getKm(htmlString);
+            
+                    console.log(k_m);
+
                     if(htmlString.includes("ADMIS")) {
                         
-                    } else if(htmlString.includes("&nbsp;&nbsp;CO&nbsp;ralanti&nbsp;limita:0.30&nbsp;vol.&nbsp;&nbsp;&nbsp;")) {
-
-                        randomNumber = Math.floor(Math.random() * Math.floor(19));
-
-                        var resArray = htmlString.split("|");
+                    } else if(resArray[25] === "&nbsp;&nbsp;2&nbsp;&nbsp;") {
+                        //varianta 3
+                        console.log("more than one rows");
                         
-                        resArray[14] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].co_1 + "&nbsp;&nbsp;";
-                        resArray[15] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].co_2 + "&nbsp;&nbsp;";
+                        let prbNr = 2;
+                        let removeIndex = 1;
+                        let itemsToRemove = 2;
 
-                        resArray[18] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].co2_1 + "&nbsp;&nbsp;";
-                        resArray[19] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].co2_2 + "&nbsp;&nbsp;";
+                        resArray.forEach(element => {
+                            if(element === "&nbsp;&nbsp;"+prbNr+"&nbsp;&nbsp;"){
+                                removeIndex = 25;
+                                itemsToRemove +=5;
+                                prbNr++;
+                            }
+                        });
 
-                        resArray[22] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].hc_1 + "&nbsp;&nbsp;";
-                        resArray[23] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].hc_2 + "&nbsp;&nbsp;";
+                        if(removeIndex = 25) {
+                            await resArray.splice(25, itemsToRemove);
+                        }
 
-                        resArray[26] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].o2_1 + "&nbsp;&nbsp;";
-                        resArray[27] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].o2_2 + "&nbsp;&nbsp;";
-
-                        resArray[30] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].lambda_1 + "&nbsp;&nbsp;";
-                        resArray[31] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].lambda_2 + "&nbsp;&nbsp;";
-
-                        resArray[34] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].coc_1 + "&nbsp;&nbsp;";
-                        resArray[35] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].coc_2 + "&nbsp;&nbsp;";
-
-                        resArray[38] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].afr_1 + "&nbsp;&nbsp;";
-                        resArray[39] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].afr_2 + "&nbsp;&nbsp;";
+                        resArray[23] = "&nbsp;"+k_m+"&nbsp;";
 
                         htmlString = resArray.join("|");
 
-                        htmlString = htmlString.replace("RESPINS", "ADMIS");
-                       
+                        let sanitizeString = htmlString.split("<BR>");
 
-                    } else if(htmlString.includes("&nbsp;&nbsp;CO&nbsp;ralanti&nbsp;limita:0.50&nbsp;vol.&nbsp;&nbsp;&nbsp;")) {
-                       
-                        randomNumber = Math.floor(Math.random() * Math.floor(9));
-                        
-                        var resArray = htmlString.split("|");
-                        
-                        resArray[14] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].co_1 + "&nbsp;&nbsp;";
-                        resArray[15] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].co_2 + "&nbsp;&nbsp;";
+                        sanitizeString[43] = "";
 
-                        resArray[18] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].co2_1 + "&nbsp;&nbsp;";
-                        resArray[19] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].co2_2 + "&nbsp;&nbsp;";
+                        sanitizeString.splice(43, 1);
 
-                        resArray[22] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].hc_1 + "&nbsp;&nbsp;";
-                        resArray[23] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].hc_2 + "&nbsp;&nbsp;";
+                        htmlString = sanitizeString.join("<BR>");
 
-                        resArray[26] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].o2_1 + "&nbsp;&nbsp;";
-                        resArray[27] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].o2_2 + "&nbsp;&nbsp;";
+                        fs.writeFile(writeFilePath, htmlString, (error) => {
+                            if(error) return console.log(error);
+                        });
 
-                        resArray[30] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].lambda_1 + "&nbsp;&nbsp;";
-                        resArray[31] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].lambda_2 + "&nbsp;&nbsp;";
+                    } else if(resArray[19] === "&nbsp;&nbsp;1&nbsp;&nbsp;") {
+                        console.log("one row");
 
-                        resArray[34] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].coc_1 + "&nbsp;&nbsp;";
-                        resArray[35] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].coc_2 + "&nbsp;&nbsp;";
-
-                        resArray[38] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].afr_1 + "&nbsp;&nbsp;";
-                        resArray[39] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].afr_2 + "&nbsp;&nbsp;";
+                        resArray[23] = "&nbsp;"+k_m+"&nbsp;";
 
                         htmlString = resArray.join("|");
 
-                        htmlString = htmlString.replace("RESPINS", "ADMIS");
+                        fs.writeFile(writeFilePath, htmlString, (error) => {
+                            if(error) return console.log(error);
+                        });
 
-                    } else if(htmlString.includes("&nbsp;COcorr.&nbsp;Valo.&nbsp;limita:3.50&nbsp;vol.&nbsp;")) {
 
-                        randomNumber =  Math.floor(Math.random() * Math.floor(4));
- 
-                        var resArray = htmlString.split("|");
+                    } else {
+                        console.log("0 rows");
+
+                        let probaNr = 1;
+
+                        randomNumber = Math.floor(Math.random() * 20);
+                        let ral_rpm = randomNumber * 10 + 740;
+
+                        randomNumber = Math.floor(Math.random() * 17);
+                        let regul_rpm = randomNumber * 20 + 4580;
                         
-                        resArray[14] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].co_1 + "&nbsp;&nbsp;";
-                        resArray[15] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].co_2 + "&nbsp;&nbsp;";
+                        randomNumber = Math.floor(Math.random() * 5);
+                        let tbaza_s = randomNumber * 0.2 + 1.2;
 
-                        resArray[18] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_1 + "&nbsp;&nbsp;";
-                        resArray[19] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_2 + "&nbsp;&nbsp;";
-
-                        resArray[22] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].hc_1 + "&nbsp;&nbsp;";
-                        resArray[23] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].hc_2 + "&nbsp;&nbsp;";
-
-                        resArray[26] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_1 + "&nbsp;&nbsp;";
-                        resArray[27] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_2 + "&nbsp;&nbsp;";
-
-                        resArray[30] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].lambda_1 + "&nbsp;&nbsp;";
-                        resArray[31] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].lambda_2 + "&nbsp;&nbsp;";
-
-                        resArray[34] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].coc_1 + "&nbsp;&nbsp;";
-                        resArray[35] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].coc_2 + "&nbsp;&nbsp;";
-
-                        resArray[38] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].afr_1 + "&nbsp;&nbsp;";
-                        resArray[39] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].afr_2 + "&nbsp;&nbsp;";
+                        resArray[20] = "";
+                        resArray[21] = "";
+                        resArray[22] = "";
+                        resArray[23] = "&nbsp;"+k_m+"&nbsp;";
 
                         htmlString = resArray.join("|");
-
-                        htmlString = htmlString.replace("RESPINS", "ADMIS");
-
-                    } else if(htmlString.includes("&nbsp;COcorr.&nbsp;Valo.&nbsp;limita:4.50&nbsp;vol.&nbsp;")) {
-                        randomNumber =  Math.floor(Math.random() * Math.floor(5));
-
-                        var resArray = htmlString.split("|");
-                        
-                        resArray[14] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].co_1 + "&nbsp;&nbsp;";
-                        resArray[15] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].co_2 + "&nbsp;&nbsp;";
-
-                        resArray[18] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_1 + "&nbsp;&nbsp;";
-                        resArray[19] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_2 + "&nbsp;&nbsp;";
-
-                        resArray[22] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].hc_1 + "&nbsp;&nbsp;";
-                        resArray[23] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].hc_2 + "&nbsp;&nbsp;";
-
-                        resArray[26] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_1 + "&nbsp;&nbsp;";
-                        resArray[27] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_2 + "&nbsp;&nbsp;";
-
-                        resArray[30] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].lambda_1 + "&nbsp;&nbsp;";
-                        resArray[31] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].lambda_2 + "&nbsp;&nbsp;";
-
-                        resArray[34] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].coc_1 + "&nbsp;&nbsp;";
-                        resArray[35] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].coc_2 + "&nbsp;&nbsp;";
-
-                        resArray[38] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].afr_1 + "&nbsp;&nbsp;";
-                        resArray[39] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].afr_2 + "&nbsp;&nbsp;";
-
-                        htmlString = resArray.join("|");
-
-                        htmlString = htmlString.replace("RESPINS", "ADMIS");
-                    
                     }
-
-                    htmlString = htmlString.replace("�C|", "&#8451;|")
-                    let indexOfNr = htmlString.indexOf("N�&nbsp;");
-
-                    let part1 = htmlString.substring(0, indexOfNr);
-                    let part2 = htmlString.substring(indexOfNr + 15, htmlString.length);
-
-                    htmlString = part1 + part2;
-
-                    let indexOfSpaces = htmlString.indexOf("Sag&nbsp;Str&nbsp;XVIII&nbsp;nr&nbsp;6");
-
-                    part1 = htmlString.substring(50, indexOfSpaces + 45);
-                    part2 = htmlString.substring(indexOfSpaces + 71, htmlString.length-102);
-                    
-                    htmlString = part1 + part2
-
-                    fs.writeFile(writeFilePath, htmlString, (error) => {
-                        if(error) return console.log(error);
-                    });
                 }
             });
 
@@ -1073,6 +1036,46 @@ const readFoldersSmoke = async (dirPath, watcher) => {
     });
          
 };
+
+const getNbsp = async (string, initialSize, customSize) => {
+    let nbspString = '';
+    let nbspSize   = initialSize + customSize - string.length;
+
+    console.log(nbspSize);
+    for (let i=0; i<nbspSize; i++) {
+        nbspString += "&nbsp;";
+    }
+    console.log(nbspString);
+
+    return nbspString;
+}
+
+const getKm = async (htmlString)  => {
+    let k_m;
+    let randomNumber;
+
+    if(htmlString.includes("VAL&nbsp;REFERINTA&nbsp;K=1.00&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")) {
+        //k=1
+        randomNumber = Math.floor(Math.random() * 12);
+        k_m = randomNumber * 0.04;
+        console.log("from function" + k_m);
+    } else if(htmlString.includes("VAL&nbsp;REFERINTA&nbsp;K=1.50&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")) {
+        //k=1.5
+        randomNumber = Math.floor(Math.random() * 24);
+        k_m = randomNumber * 0.04 + 0.01;
+
+    } else if(htmlString.includes("VAL&nbsp;REFERINTA&nbsp;K=2.50&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")) {
+        //k=2.5
+        randomNumber = Math.floor(Math.random() * 11);
+        k_m = randomNumber * 0.08 + 1.10;
+        
+    } else if(htmlString.includes("VAL&nbsp;REFERINTA&nbsp;K=3.50&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")) {
+        //k=3.5
+        randomNumber = Math.floor(Math.random() * 10);
+        k_m = randomNumber * 0.12 + 1.10;
+    } 
+    return k_m;
+}
 
 readFoldersGas(dirPathGas);
 readFoldersSmoke(dirPathSmoke);
