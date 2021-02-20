@@ -884,7 +884,17 @@ const readFoldersGas = async (dirPath, watcher) => {
                     part1 = htmlString.substring(0, indexOfSpaces + 45);
                     part2 = htmlString.substring(indexOfSpaces + 71, htmlString.length-102);
                     
-                    htmlString = part1 + part2
+                    htmlString = part1 + part2;
+
+
+                    let admisArray = htmlString.split("<BR>");
+
+                    let i = 0;
+                    admisArray.forEach(element => {
+                        console.log(element);
+                        console.log(i++);
+                        console.log("-------------------------------------------------")
+                    });
 
                     fs.writeFile(writeFilePath, htmlString, (error) => {
                         if(error) return console.log(error);
@@ -940,6 +950,14 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                     //console.log(htmlString);
                     
                     let randomNumber; 
+                    let indexOfNr = htmlString.indexOf("N�&nbsp;");
+
+                    console.log(indexOfNr);
+
+                    let part1 = htmlString.substring(0, indexOfNr);
+                    let part2 = htmlString.substring(indexOfNr + 16, htmlString.length);
+
+                    htmlString = part1 + part2;
 
                     var resArray = htmlString.split("|");
 
@@ -958,6 +976,8 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                     let k_m = await getKm(htmlString);
             
                     console.log(k_m);
+
+                   
 
                     if(htmlString.includes("ADMIS")) {
                         
@@ -987,14 +1007,36 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                         let sanitizeString = htmlString.split("<BR>");
 
-                        sanitizeString[43] = "";
+                        // let  i = 0;
+                        // sanitizeString.forEach(el => {
+                        //     console.log(i++);
+                        //     console.log(el);
+                        //     console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++");
+                        // });
 
-                        sanitizeString.splice(43, 1);
+
+                       
+
+                        sanitizeString.splice(42, 1);
 
                         htmlString = sanitizeString.join("<BR>");
 
+                        //htmlString = htmlString.replace("RESPINS", "ADMIS");
+                        htmlString = htmlString.replace(/�C/gi, "°C");
 
-                        htmlString = htmlString.replace("�C|", "°C|")
+                        let admisArray = htmlString.split("<BR>");
+
+                        // let  i = 0;
+                        // admisArray.forEach(el => {
+                        //     console.log(i++);
+                        //     console.log(el);
+                        //     console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++");
+                        // });
+
+                        admisArray[47] = "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REZULTAT:&nbsp;ADMIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
+
+                        htmlString = admisArray.join("<BR>");
+
                         fs.writeFile(writeFilePath, htmlString, (error) => {
                             if(error) return console.log(error);
                         });
@@ -1006,7 +1048,24 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                         htmlString = resArray.join("|");
 
-                        htmlString = htmlString.replace("�C|", "°C|")
+                        //htmlString = htmlString.replace("RESPINS", "ADMIS");
+                        htmlString = htmlString.replace(/�C/gi, "°C")
+
+                        let admisArray = htmlString.split("<BR>");
+
+                        let  i = 0;
+                        // admisArray.forEach(el => {
+                        //     console.log(i++);
+                        //     console.log(el);
+                        //     console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++");
+                        // });
+
+                        admisArray[47] = "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REZULTAT:&nbsp;ADMIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
+
+
+                        htmlString = admisArray.join("<BR>");
+
+
                         fs.writeFile(writeFilePath, htmlString, (error) => {
                             if(error) return console.log(error);
                         });
@@ -1030,13 +1089,36 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                         let ral_rpm_string = "&nbsp;&nbsp;" + ral_rpm + "";
                         let regul_rpm_string = "&nbsp;&nbsp;&nbsp;" + regul_rpm + "";
                         let tbaza_s_string = "&nbsp;" + tbaza_s + "";
+                        if(tbaza_s_string.length < 5)
+                            tbaza_s_string = "&nbsp;" + tbaza_s_string;
+                        
                         let k_m_string = "&nbsp;" + k_m + "*";
+                        while(k_m_string.length < 6) {
+                            k_m_string = "&nbsp;" + k_m_string;
+                        }
 
                         resArray.splice(18, 0, '<BR>', probaNr_string, ral_rpm_string, regul_rpm_string, tbaza_s_string, k_m_string);
                         
 
                         htmlString = resArray.join("|");
-                        htmlString = htmlString.replace("�C|", "°C|")
+
+                        // htmlString = htmlString.replace("RESPINS", "ADMIS");
+                        htmlString = htmlString.replace(/�C/gi, "°C");
+                    
+
+                        let admisArray = htmlString.split("<BR>");
+
+                        let  i = 0;
+                        admisArray.forEach(el => {
+                            console.log(i++);
+                            console.log(el);
+                            console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++");
+                        });
+
+                        admisArray[45] = "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REZULTAT:&nbsp;ADMIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
+                                        
+
+                        htmlString = admisArray.join("<BR>");
                         try {
                             fs.writeFile(writeFilePath, htmlString, (error) => {
                                 if(error) return console.log(error);
