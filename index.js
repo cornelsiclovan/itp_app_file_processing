@@ -943,12 +943,12 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                     var resArray = htmlString.split("|");
 
-                    let i = 0;
-                    resArray.forEach(element => {
-                        console.log(element);
-                        console.log(i++);
-                        console.log("++++++++++++++++++++++++++\n");
-                    });
+                    // let i = 0;
+                    // resArray.forEach(element => {
+                    //     console.log(element);
+                    //     console.log(i++);
+                    //     console.log("++++++++++++++++++++++++++\n");
+                    // });
 
                     //Testam daca este Admis
                     //Daca nu este admis atunci verificam numarul de randuri
@@ -963,7 +963,7 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                         
                     } else if(resArray[25] === "&nbsp;&nbsp;2&nbsp;&nbsp;") {
                         //varianta 3
-                        console.log("more than one rows");
+                       // console.log("more than one rows");
                         
                         let prbNr = 2;
                         let removeIndex = 1;
@@ -993,24 +993,27 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                         htmlString = sanitizeString.join("<BR>");
 
+
+                        htmlString = htmlString.replace("�C|", "°C|")
                         fs.writeFile(writeFilePath, htmlString, (error) => {
                             if(error) return console.log(error);
                         });
 
                     } else if(resArray[19] === "&nbsp;&nbsp;1&nbsp;&nbsp;") {
-                        console.log("one row");
+                        //console.log("one row");
 
-                        resArray[23] = "&nbsp;"+k_m+"&nbsp;";
+                        resArray[23] = "&nbsp;"+k_m+"*";
 
                         htmlString = resArray.join("|");
 
+                        htmlString = htmlString.replace("�C|", "°C|")
                         fs.writeFile(writeFilePath, htmlString, (error) => {
                             if(error) return console.log(error);
                         });
 
 
                     } else {
-                        console.log("0 rows");
+                        //console.log("0 rows");
 
                         let probaNr = 1;
 
@@ -1023,17 +1026,17 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                         randomNumber = Math.floor(Math.random() * 5);
                         let tbaza_s = randomNumber * 0.2 + 1.2;
 
-                        let probaNr_string = "" + probaNr + "";
-                        let ral_rpm_string = "" + ral_rpm + "";
-                        let regul_rpm_string = "" + regul_rpm + "";
-                        let tbaza_s_string = "" + tbaza_s + "";
-                        let k_m_string = "&nbsp;" + k_m + "&nbsp;";
+                        let probaNr_string = "&nbsp;&nbsp;" + probaNr + "&nbsp;&nbsp;";
+                        let ral_rpm_string = "&nbsp;&nbsp;" + ral_rpm + "";
+                        let regul_rpm_string = "&nbsp;&nbsp;&nbsp;" + regul_rpm + "";
+                        let tbaza_s_string = "&nbsp;" + tbaza_s + "";
+                        let k_m_string = "&nbsp;" + k_m + "*";
 
-                        resArray.splice(18, 0, probaNr_string, ral_rpm_string, regul_rpm_string, tbaza_s_string, k_m_string);
+                        resArray.splice(18, 0, '<BR>', probaNr_string, ral_rpm_string, regul_rpm_string, tbaza_s_string, k_m_string);
                         
 
                         htmlString = resArray.join("|");
-
+                        htmlString = htmlString.replace("�C|", "°C|")
                         try {
                             fs.writeFile(writeFilePath, htmlString, (error) => {
                                 if(error) return console.log(error);
@@ -1053,11 +1056,9 @@ const getNbsp = async (string, initialSize, customSize) => {
     let nbspString = '';
     let nbspSize   = initialSize + customSize - string.length;
 
-    console.log(nbspSize);
     for (let i=0; i<nbspSize; i++) {
         nbspString += "&nbsp;";
-    }
-    console.log(nbspString);
+    }    
 
     return nbspString;
 }
@@ -1070,7 +1071,7 @@ const getKm = async (htmlString)  => {
         //k=1
         randomNumber = Math.floor(Math.random() * 12);
         k_m = randomNumber * 0.04;
-        console.log("from function" + k_m);
+       
     } else if(htmlString.includes("VAL&nbsp;REFERINTA&nbsp;K=1.50&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")) {
         //k=1.5
         randomNumber = Math.floor(Math.random() * 24);
