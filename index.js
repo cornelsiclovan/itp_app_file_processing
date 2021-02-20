@@ -694,13 +694,15 @@ const readFoldersGas = async (dirPath, watcher) => {
             //console.log("from here", res[res.length-1]);
             //console.log("from here", res[res.length-2]);
 
-            fs.mkdir(path.join(writeFilePath, res[res.length-2]),  err =>{
-            
-                newFileName = res[res.length-1]; 
-                writeFilePath = path.join(writeFilePath, res[res.length-2])
-                writeFilePath = path.join(writeFilePath, newFileName);
+            try {
+                fs.mkdir(path.join(writeFilePath, res[res.length-2]),  err =>{
+                
+                    newFileName = res[res.length-1]; 
+                    writeFilePath = path.join(writeFilePath, res[res.length-2])
+                    writeFilePath = path.join(writeFilePath, newFileName);
 
-            });
+                });
+            } catch (err) {}
 
             fs.readFile(name, async(err, data) => {
                 let htmlString;
@@ -904,8 +906,7 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
     watch(dirPath, { recursive:true },async (evt, name) => {
 
-        let writeFilePath = 
-        path.join(__dirname, '../SMOKE');
+        let writeFilePath = path.join(__dirname, '../SMOKE');
 
         writeFileName = path.join(writeFilePath, name);
 
@@ -920,14 +921,15 @@ const readFoldersSmoke = async (dirPath, watcher) => {
             //console.log("from here", res[res.length-2]);
 
            
+            try {
+                fs.mkdir(path.join(writeFilePath, res[res.length-2]),  err =>{
+                
+                    newFileName = res[res.length-1]; 
+                    writeFilePath = path.join(writeFilePath, res[res.length-2])
+                    writeFilePath = path.join(writeFilePath, newFileName);
 
-            fs.mkdir(path.join(writeFilePath, res[res.length-2]),  err =>{
-            
-                newFileName = res[res.length-1]; 
-                writeFilePath = path.join(writeFilePath, res[res.length-2])
-                writeFilePath = path.join(writeFilePath, newFileName);
-
-            });
+                });
+            } catch(err){}
 
             fs.readFile(name, async(err, data) => {
                 let htmlString;
@@ -1021,12 +1023,22 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                         randomNumber = Math.floor(Math.random() * 5);
                         let tbaza_s = randomNumber * 0.2 + 1.2;
 
-                        resArray[20] = "";
-                        resArray[21] = "";
-                        resArray[22] = "";
-                        resArray[23] = "&nbsp;"+k_m+"&nbsp;";
+                        let probaNr_string = "" + probaNr + "";
+                        let ral_rpm_string = "" + ral_rpm + "";
+                        let regul_rpm_string = "" + regul_rpm + "";
+                        let tbaza_s_string = "" + tbaza_s + "";
+                        let k_m_string = "&nbsp;" + k_m + "&nbsp;";
+
+                        resArray.splice(18, 0, probaNr_string, ral_rpm_string, regul_rpm_string, tbaza_s_string, k_m_string);
+                        
 
                         htmlString = resArray.join("|");
+
+                        try {
+                            fs.writeFile(writeFilePath, htmlString, (error) => {
+                                if(error) return console.log(error);
+                            });
+                        } catch (err) { console.log(err)}
                     }
                 }
             });
