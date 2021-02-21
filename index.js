@@ -1037,6 +1037,18 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                         htmlString = admisArray.join("<BR>");
 
+                        if(htmlString.includes("K&nbsp;mediu")) {
+
+                        } else {
+
+                        }
+
+                        if(htmlString.includes("Delta&nbsp;K")) {
+
+                        } else {
+                            
+                        }
+
                         fs.writeFile(writeFilePath, htmlString, (error) => {
                             if(error) return console.log(error);
                         });
