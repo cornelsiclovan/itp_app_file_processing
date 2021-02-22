@@ -750,6 +750,12 @@ const readFoldersGas = async (dirPath, watcher) => {
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].afr_2 + "&nbsp;&nbsp;";
 
+                        tur_rpm_1 = resArray[42].replace(/&nbsp;/gi, "");
+                        tur_rpm_2 = resArray[43].replace(/&nbsp;/gi, "");
+
+                        temp_c_1 = resArray[46].replace(/&nbsp;/gi, "");
+                        temp_c_2 = resArray[47].replace(/&nbsp;/gi, "");
+
                         htmlString = resArray.join("|");
 
                         htmlString = htmlString.replace("RESPINS", "ADMIS");
@@ -787,6 +793,12 @@ const readFoldersGas = async (dirPath, watcher) => {
 
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_05[randomNumber].afr_2 + "&nbsp;&nbsp;";
+
+                        tur_rpm_1 = resArray[42].replace(/&nbsp;/gi, "");
+                        tur_rpm_2 = resArray[43].replace(/&nbsp;/gi, "");
+
+                        temp_c_1 = resArray[46].replace(/&nbsp;/gi, "");
+                        temp_c_2 = resArray[47].replace(/&nbsp;/gi, "");
 
                         htmlString = resArray.join("|");
 
@@ -826,6 +838,12 @@ const readFoldersGas = async (dirPath, watcher) => {
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_35[randomNumber].afr_2 + "&nbsp;&nbsp;";
 
+                        tur_rpm_1 = resArray[42].replace(/&nbsp;/gi, "");
+                        tur_rpm_2 = resArray[43].replace(/&nbsp;/gi, "");
+
+                        temp_c_1 = resArray[46].replace(/&nbsp;/gi, "");
+                        temp_c_2 = resArray[47].replace(/&nbsp;/gi, "");
+
                         htmlString = resArray.join("|");
 
                         htmlString = htmlString.replace("RESPINS", "ADMIS");
@@ -864,6 +882,12 @@ const readFoldersGas = async (dirPath, watcher) => {
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_45[randomNumber].afr_2 + "&nbsp;&nbsp;";
 
+                        tur_rpm_1 = resArray[42].replace(/&nbsp;/gi, "");
+                        tur_rpm_2 = resArray[43].replace(/&nbsp;/gi, "");
+
+                        temp_c_1 = resArray[46].replace(/&nbsp;/gi, "");
+                        temp_c_2 = resArray[47].replace(/&nbsp;/gi, "");
+
                         htmlString = resArray.join("|");
 
                         htmlString = htmlString.replace("RESPINS", "ADMIS");
@@ -889,12 +913,12 @@ const readFoldersGas = async (dirPath, watcher) => {
 
                     let admisArray = htmlString.split("<BR>");
 
-                    let i = 0;
-                    admisArray.forEach(element => {
-                        console.log(element);
-                        console.log(i++);
-                        console.log("-------------------------------------------------")
-                    });
+                    // let i = 0;
+                    // admisArray.forEach(element => {
+                    //     console.log(element);
+                    //     console.log(i++);
+                    //     console.log("-------------------------------------------------")
+                    // });
 
                     fs.writeFile(writeFilePath, htmlString, (error) => {
                         if(error) return console.log(error);
@@ -902,7 +926,7 @@ const readFoldersGas = async (dirPath, watcher) => {
 
                     let sentString = writeFilePath.replaceAll('\\', 'xxx');
             
-                    open("http://localhost:3000/editeaza_benzina/" + type_gas + "/" + randomNumber + "/" + sentString, {app: 'chrome'});
+                    open("http://localhost:3000/editeaza_benzina/" + type_gas + "/" + randomNumber + "/" + sentString + "/" + tur_rpm_1 + "/" + tur_rpm_2 + "/" + temp_c_1 + "/" + temp_c_2, {app: 'chrome'});
                 }
             });
 
@@ -927,8 +951,6 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
 
         if(res[res.length-1].split(".")[1] === "html"){
-            //console.log("from here", res[res.length-1]);
-            //console.log("from here", res[res.length-2]);
 
            
             try {
@@ -943,16 +965,17 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
             fs.readFile(name, async(err, data) => {
                 let htmlString;
-            
+                let ral_rpm;
+                let regul_rpm;
+                let k_m;
+                let tbaza_s;
 
                 if(data !== undefined){
                     htmlString = data.toString();
-                    //console.log(htmlString);
                     
                     let randomNumber; 
                     let indexOfNr = htmlString.indexOf("N�&nbsp;");
 
-                    console.log(indexOfNr);
 
                     let part1 = htmlString.substring(0, indexOfNr);
                     let part2 = htmlString.substring(indexOfNr + 16, htmlString.length);
@@ -973,11 +996,12 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                     //Daca numarul de randuri este 1
                     //Daca numarul de randuri este > 1
                     //Daca numarul de randuri este = 0
-                    let k_m = await getKm(htmlString);
+                    k_m = await getKm(htmlString);
             
-                    console.log(k_m);
-
-                   
+                    if(k_m === 0) {
+                        k_m = 0.1;
+                    }
+                
 
                     if(htmlString.includes("ADMIS")) {
                         
@@ -1008,14 +1032,15 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                         let sanitizeString = htmlString.split("<BR>");
 
                         // let  i = 0;
-                        // sanitizeString.forEach(el => {
+                        // resArray.forEach(el => {
                         //     console.log(i++);
                         //     console.log(el);
                         //     console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++");
                         // });
 
-
-                       
+                        ral_rpm = resArray[20].replace(/&nbsp;/gi, "");
+                        regul_rpm = resArray[21].replace(/&nbsp;/gi, "");
+                        tbaza_s = resArray[22].replace(/&nbsp;/gi, "");
 
                         sanitizeString.splice(42, 1);
 
@@ -1035,9 +1060,24 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                         admisArray[47] = "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REZULTAT:&nbsp;ADMIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
 
-                        htmlString = admisArray.join("<BR>");
+                        
 
                         if(htmlString.includes("K&nbsp;mediu")) {
+                            let kmediuArray = admisArray[45].split("=");
+                            let addNbspString = "";
+                            let startString = "&nbsp;";
+                            startString += k_m;
+                            startString += "&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
+
+                            for(let i = 0; i < 3 - k_m.length; i++) {
+                                addNbspString += "&nbsp;";
+                            }
+
+                            startString += addNbspString;
+
+                            kmediuArray[1] = startString;
+
+                            admisArray[45] = kmediuArray.join("="); 
 
                         } else {
 
@@ -1049,6 +1089,8 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                             
                         }
 
+                        htmlString = admisArray.join("<BR>");
+
                         fs.writeFile(writeFilePath, htmlString, (error) => {
                             if(error) return console.log(error);
                         });
@@ -1058,6 +1100,10 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                         resArray[23] = "&nbsp;"+k_m+"*";
 
+                        ral_rpm = resArray[20].replace(/&nbsp;/gi, "");
+                        regul_rpm = resArray[21].replace(/&nbsp;/gi, "");
+                        tbaza_s = resArray[22].replace(/&nbsp;/gi, "");
+
                         htmlString = resArray.join("|");
 
                         //htmlString = htmlString.replace("RESPINS", "ADMIS");
@@ -1065,7 +1111,7 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                         let admisArray = htmlString.split("<BR>");
 
-                        let  i = 0;
+                        // let  i = 0;
                         // admisArray.forEach(el => {
                         //     console.log(i++);
                         //     console.log(el);
@@ -1073,7 +1119,37 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                         // });
 
                         admisArray[47] = "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REZULTAT:&nbsp;ADMIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
+                        
+                        admisArray[45] = admisArray[46];
+                        admisArray[46] = "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delta&nbsp;K=&nbsp;0.00&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
 
+
+                          if(htmlString.includes("K&nbsp;mediu")) {
+                            let kmediuArray = admisArray[45].split("=");
+                            let addNbspString = "";
+                            let startString = "&nbsp;";
+                            startString += k_m;
+                            startString += "&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
+
+                            for(let i = 0; i < 3 - k_m.length; i++) {
+                                addNbspString += "&nbsp;";
+                            }
+
+                            startString += addNbspString;
+
+                            kmediuArray[1] = startString;
+
+                            admisArray[45] = kmediuArray.join("="); 
+
+                        } else {
+
+                        }
+
+                        if(htmlString.includes("Delta&nbsp;K")) {
+
+                        } else {
+                            
+                        }
 
                         htmlString = admisArray.join("<BR>");
 
@@ -1089,13 +1165,13 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                         let probaNr = 1;
 
                         randomNumber = Math.floor(Math.random() * 20);
-                        let ral_rpm = randomNumber * 10 + 740;
+                        ral_rpm = randomNumber * 10 + 740;
 
                         randomNumber = Math.floor(Math.random() * 17);
-                        let regul_rpm = randomNumber * 20 + 4580;
+                        regul_rpm = randomNumber * 20 + 4580;
                         
                         randomNumber = Math.floor(Math.random() * 5);
-                        let tbaza_s = randomNumber * 0.2 + 1.2;
+                        tbaza_s = randomNumber * 0.2 + 1.2;
 
                         let probaNr_string = "&nbsp;&nbsp;" + probaNr + "&nbsp;&nbsp;";
                         let ral_rpm_string = "&nbsp;&nbsp;" + ral_rpm + "";
@@ -1120,15 +1196,51 @@ const readFoldersSmoke = async (dirPath, watcher) => {
 
                         let admisArray = htmlString.split("<BR>");
 
-                        let  i = 0;
-                        admisArray.forEach(el => {
-                            console.log(i++);
-                            console.log(el);
-                            console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++");
-                        });
+                        // let  i = 0;
+                        // admisArray.forEach(el => {
+                        //     console.log(i++);
+                        //     console.log(el);
+                        //     console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++");
+                        // });
+
+
 
                         admisArray[45] = "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REZULTAT:&nbsp;ADMIS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
-                                        
+                                    
+                        await admisArray.splice(45, 0, "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;K&nbsp;mediu=&nbsp;1.06&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*", 
+                                                 "*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delta&nbsp;K=&nbsp;0.00&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*")
+
+
+                       
+
+                         if(admisArray[45].includes("K&nbsp;mediu")) {
+                            let kmediuArray = admisArray[45].split("=");
+                            let addNbspString = "";
+                            let startString = "&nbsp;";
+                            startString += k_m;
+                            startString += "&nbsp;/m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*";
+
+                            for(let i = 0; i < 3 - k_m.length; i++) {
+                                addNbspString += "&nbsp;";
+                            }
+
+                            startString += addNbspString;
+
+                            kmediuArray[1] = startString;
+
+                            admisArray[45] = kmediuArray.join("="); 
+
+                            console.log(admisArray[45]);
+                        } else {
+
+                        }
+
+                        if(htmlString.includes("Delta&nbsp;K")) {
+
+                        } else {
+                            
+                        }
+
 
                         htmlString = admisArray.join("<BR>");
                         try {
@@ -1137,6 +1249,9 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                             });
                         } catch (err) { console.log(err)}
                     }
+                
+                    let sentString = writeFilePath.replaceAll('\\', 'xxx');
+                    open("http://localhost:3000/editeaza_diesel/" + ral_rpm +"/" + regul_rpm + "/" + tbaza_s + "/" + k_m + "/" + sentString, {app: 'chrome'});
                 }
             });
 
