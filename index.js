@@ -713,7 +713,8 @@ const readFoldersGas = async (dirPath, watcher) => {
                   
                     let type_gas;
                     let randomNumber; 
-
+                    let tur_rpm_1;
+                    let tur_rpm_2;
 
                     if(htmlString.includes("ADMIS")) {
                         
@@ -750,7 +751,6 @@ const readFoldersGas = async (dirPath, watcher) => {
                         resArray[38] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].afr_1 + "&nbsp;&nbsp;";
                         resArray[39] = "&nbsp;&nbsp;" + gas_bun_03[randomNumber].afr_2 + "&nbsp;&nbsp;";
 
-                        tur_rpm_1 = resArray[42].replace(/&nbsp;/gi, "");
                         tur_rpm_2 = resArray[43].replace(/&nbsp;/gi, "");
 
                         temp_c_1 = resArray[46].replace(/&nbsp;/gi, "");
@@ -993,7 +993,9 @@ const readFoldersGas = async (dirPath, watcher) => {
                         if(error) return console.log(error);
                     });
 
-                    let sentString = writeFilePath.replaceAll('\\', 'xxx');
+                  
+                    // let sentString = writeFilePath.replaceAll('\\', 'xxx');
+                    let sentString = writeFilePath.replace(/\\/gi, 'xxx');
 
                     if(temp_c_2 === "") {temp_c_2 = 0};
                     if(tur_rpm_2 === "" ) {tur_rpm_2 = 0};
@@ -1328,7 +1330,8 @@ const readFoldersSmoke = async (dirPath, watcher) => {
                         } catch (err) { console.log(err)}
                     }
                 
-                    let sentString = writeFilePath.replaceAll('\\', 'xxx');
+                    // let sentString = writeFilePath.replaceAll('\\', 'xxx');
+                    let sentString = writeFilePath.replace(/\\/gi, 'xxx');
                     open("http://localhost:3000/editeaza_diesel/" + ral_rpm +"/" + regul_rpm + "/" + tbaza_s + "/" + k_m + "/" + sentString, {app: 'chrome'});
                 }
             });
