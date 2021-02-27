@@ -814,7 +814,11 @@ const readFoldersGas = async (dirPath, watcher) => {
                         resArray[14] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co_1 + "&nbsp;&nbsp;";
                         // resArray[15] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co_2 + "&nbsp;&nbsp;";
 
-                        resArray[18] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_1 + "&nbsp;&nbsp;";
+                        if(gas_bun_35[randomNumber].co2_1.length === 3) {
+                             resArray[18] = "&nbsp;&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_1 + "&nbsp;&nbsp;"; 
+                        } else {
+                            resArray[18] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_1 + "&nbsp;&nbsp;";
+                        }
                         // resArray[19] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].co2_2 + "&nbsp;&nbsp;";
 
                         let nbsp = await getNbsp(gas_bun_35[randomNumber].hc_1, 4, 3);
@@ -825,7 +829,7 @@ const readFoldersGas = async (dirPath, watcher) => {
                         
                         // resArray[23] = nbsp + gas_bun_35[randomNumber].hc_2 + "&nbsp;&nbsp;";
 
-                        resArray[26] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_1 + "&nbsp;&nbsp;";
+                        resArray[26] = "&nbsp;&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_1 + "&nbsp;&nbsp;";
                         // resArray[27] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].o2_2 + "&nbsp;&nbsp;";
 
                         resArray[30] = "&nbsp;&nbsp;&nbsp;" + gas_bun_35[randomNumber].lambda_1 + "&nbsp;&nbsp;";
@@ -862,7 +866,11 @@ const readFoldersGas = async (dirPath, watcher) => {
                         resArray[14] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co_1 + "&nbsp;&nbsp;";
                         //resArray[15] = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
-                        resArray[18] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_1 + "&nbsp;&nbsp;";
+                         if(gas_bun_45[randomNumber].co2_1.length === 3) {
+                             resArray[18] = "&nbsp;&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_1 + "&nbsp;&nbsp;"; 
+                        } else {
+                            resArray[18] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_1 + "&nbsp;&nbsp;";
+                        }
                         //resArray[19] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].co2_2 + "&nbsp;&nbsp;";
 
                         let nbsp = await getNbsp(gas_bun_45[randomNumber].hc_1, 4, 3);
@@ -873,7 +881,7 @@ const readFoldersGas = async (dirPath, watcher) => {
                         
                         // resArray[23] = nbsp + gas_bun_45[randomNumber].hc_2 + "&nbsp;&nbsp;";
 
-                        resArray[26] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_1 + "&nbsp;&nbsp;";
+                        resArray[26] = "&nbsp;&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_1 + "&nbsp;&nbsp;";
                         //resArray[27] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].o2_2 + "&nbsp;&nbsp;";
 
                         resArray[30] = "&nbsp;&nbsp;&nbsp;" + gas_bun_45[randomNumber].lambda_1 + "&nbsp;&nbsp;";
